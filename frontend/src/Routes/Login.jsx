@@ -1,33 +1,30 @@
 import React from 'react'
 import style from '../CSS/Signup.module.css'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { registrationEmailAction, userRegistration } from '../Redux/SignupReducer/action';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { loginEmailAction, userLogin } from '../Redux/LoginReducer/action';
 
-// SIGN UP COMPONENT
-
-export const SignUp = () => {
+export const Login = () => {
 
     const dispatch = useDispatch();
 
 
     const { email } = useSelector((store) => {
         return {
-          email: store.SignupReducer.email,
+          email: store.LoginReducer.email,
         }
       }, shallowEqual)
 
+      
+
       console.log(email);
 
-
-
-      const userSignClick = (e)=>{
+      const userLoginClick = (e)=>{
         e.preventDefault();
         const data = {
             email
         }
-        dispatch(userRegistration(data))
-
+        dispatch(userLogin(data))
       }
 
 
@@ -38,10 +35,10 @@ export const SignUp = () => {
             <div>
 
                 {/* Heading */}
-                <h1>Sign Up</h1>
+                <h1>Login</h1>
 
 
-                <form onSubmit={userSignClick}>
+                <form onSubmit={userLoginClick}>
 
                     <div>
                         <label> Email</label>
@@ -53,7 +50,7 @@ export const SignUp = () => {
                             placeholder='Email'
                             required
                             onChange={(e)=>{
-                                dispatch(registrationEmailAction(e.target.value))
+                                dispatch(loginEmailAction(e.target.value))
                             }}
 
                         />
@@ -66,7 +63,7 @@ export const SignUp = () => {
                 </form>
 
                 <div>
-                    <Link to={'/login'}>Login</Link>
+                    <Link to={'/'}>SignUp</Link>
                 </div>
             </div>
 
