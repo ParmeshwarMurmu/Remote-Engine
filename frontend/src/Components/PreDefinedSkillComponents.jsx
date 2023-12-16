@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
+import style from '../Routes/Pages/Onboarding/Onboarding.module.css'
 
 export const PreDefinedSkillComponents = ({ preDefinedSkills, selectedSkills, onSkillClick , skills}) => {
 
@@ -13,6 +14,7 @@ export const PreDefinedSkillComponents = ({ preDefinedSkills, selectedSkills, on
                      <button key={el._id}
                      onClick={() => onSkillClick(el)}
                      disabled={skills.some((skill) => skill._id === el._id)}
+                     className={style.button}
                     
                      >
                         {el.skill}
