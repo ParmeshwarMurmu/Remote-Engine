@@ -5,7 +5,7 @@ import { ProfessionalExperiencePreDefinedSkillsComp } from './ProfessionalExperi
 
 export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => {
 
-  const [professionalSkills, setProfessionalSkills] = useState([])
+  const [professionalSkills, setProfessionalSkills] = useState([]) // skillused: [{}, {}]
 
     const experienceHandler = (e)=>{
         const {name, value} = e.target;
@@ -53,9 +53,11 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
             <label>Skills Used:</label>
 
             <ProfessionalExperiencePreDefinedSkillsComp
-            preDefinedSkills = {preDefinedSkills}
-            professionalSkills= {professionalSkills}
-            setProfessionalSkills = {setProfessionalSkills}
+            preDefinedSkills = {preDefinedSkills} //already defind skills
+            professionalSkills= {professionalSkills} // state to handle skillUsed (array)
+            setProfessionalSkills = {setProfessionalSkills} // updater functon to set SkilUsed
+            experience={experience} // how many times i have too create 
+            onExperienceChange = {onExperienceChange} // final professional experience data
 
              />
 
