@@ -1,9 +1,10 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { SignUp } from './SignUp'
-import { Onboarding } from './Onboarding'
-import { Login } from './Login'
+import { SignUp } from '../Pages/SignUp/SignUp'
+import { Onboarding } from '../Pages/Onboarding/Onboarding'
+import { Login } from '../Pages/Login/Login'
 import { PrivateRoute } from './PrivateRoute'
+import { Skill } from '../Pages/Skills/Skill'
 
 
 export const AllRoutes = () => {
@@ -16,6 +17,7 @@ export const AllRoutes = () => {
             </PrivateRoute>} />
             <Route path='/' element={<SignUp />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/addSkill' element={<Skill />} />
         </Routes>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
-import style from '../CSS/Signup.module.css'
+import style from '../SignUp/Signup.module.css'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { registrationEmailAction, userRegistration } from '../Redux/SignupReducer/action';
+import { registrationEmailAction, userRegistration } from '../../../Redux/SignupReducer/action';
 import { Link } from 'react-router-dom';
 
 // SIGN UP COMPONENT
@@ -37,7 +37,11 @@ export const SignUp = () => {
 
             <div>
 
-                {/* Heading */}
+                <div className={style.onboarding}>
+                    <Link to={'/onboarding'}>Onboarding</Link>
+                </div>
+
+               
                 <h1>Sign Up</h1>
 
 

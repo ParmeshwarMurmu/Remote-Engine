@@ -1,8 +1,9 @@
 import React from 'react'
-import style from '../CSS/Signup.module.css'
+// import style from '../CSS/Signup.module.css'
+import style from '../SignUp/Signup.module.css'
 import { Link } from 'react-router-dom'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { loginEmailAction, userLogin } from '../Redux/LoginReducer/action';
+import { loginEmailAction, userLogin } from '../../../Redux/LoginReducer/action';
 
 export const Login = () => {
 
@@ -11,21 +12,21 @@ export const Login = () => {
 
     const { email } = useSelector((store) => {
         return {
-          email: store.LoginReducer.email,
+            email: store.LoginReducer.email,
         }
-      }, shallowEqual)
+    }, shallowEqual)
 
-      
 
-      console.log(email);
 
-      const userLoginClick = (e)=>{
+    console.log(email);
+
+    const userLoginClick = (e) => {
         e.preventDefault();
         const data = {
             email
         }
         dispatch(userLogin(data))
-      }
+    }
 
 
     return (
@@ -33,6 +34,10 @@ export const Login = () => {
 
 
             <div>
+
+                <div className={style.onboarding}>
+                    <Link to={'/onboarding'}>Onboarding</Link>
+                </div>
 
                 {/* Heading */}
                 <h1>Login</h1>
@@ -49,7 +54,7 @@ export const Login = () => {
                         <input type='email'
                             placeholder='Email'
                             required
-                            onChange={(e)=>{
+                            onChange={(e) => {
                                 dispatch(loginEmailAction(e.target.value))
                             }}
 

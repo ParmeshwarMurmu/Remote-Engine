@@ -1,5 +1,5 @@
 
-import { Main } from './Routes/Main';
+import { Main } from './Routes/AllRoutes/Main';
 
 function App() {
   return (

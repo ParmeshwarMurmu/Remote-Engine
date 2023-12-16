@@ -3,7 +3,7 @@
 import { IS_AUTH } from "./action";
 
 const initialState = {
-    isAuth: "",
+    isAuth: true,
     
 }
 

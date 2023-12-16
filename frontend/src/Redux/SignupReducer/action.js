@@ -1,4 +1,6 @@
 import axios from "axios";
+import { APP_URL, } from "../../Variables/AllVariables";
+import { USER_SIGNUP_ENDPOINT } from "../../Api/EndPoints";
 
 export const REGISTRATION_EMAIL = "REGISTRATION_EMAIL";
 
@@ -16,8 +18,7 @@ export const registrationEmailAction = (payload ) => {
 
 export const userRegistration = (data) => (dispatch) => {
 
-    console.log(data);
-    axios.post("http://localhost:8000/user/signUp", data)
+    axios.post(`${APP_URL}${USER_SIGNUP_ENDPOINT}`, data)
     .then((res) => {
       console.log(res);
       alert(`${res.data.message}`)
