@@ -60,9 +60,8 @@ export const completeOnboarding = (data) => (dispatch) => {
       }
     })
     .then((res) => {
-     
-      alert(res.data.message)
-      
+      console.log(res);
+      alert(`${res.data.message}`)
       
     })
     .catch((err) => {
