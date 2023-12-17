@@ -34,33 +34,37 @@ export const ViewApplication = () => {
 
      
 
-      <div>
+      <div >
 
 
         {
-          isLoading === true ? <h3>Loading Applications</h3> : <div>
+          isLoading === true ? <h3>Loading Applications</h3> : <div className={style.individualApplication}>
             {
               allApplication.map((el) => (
                 <div>
-                  <p>{`${el.firstName} ${el.lastName}`}</p>
-                  <p>{`${el.phoneNumber}`}</p>
-                  <p>{`${el.email}`}</p>
+                  <p>Name: {`${el.firstName} ${el.lastName}`}</p>
+                  <p>Phone Number: {`${el.phoneNumber}`}</p>
+                  <p>Email: {`${el.email}`}</p>
                   <h3>Skills:</h3>
+                  <div className={style.skills}>
+                    
                   {
                     el.skills.map((skil) => (
                       <p>{`${skil._id.skill}`}</p>
 
                     ))
                   }
+                  </div>
 
                   <h3>Proffessional Experience</h3>
                   {
                     el.professionalExperience.map((Pe) => (
                       <div>
-                        <p>{`${Pe.companyName}`}</p>
-                        <p>{`${Pe.techStack}`}</p>
-                        <div>
-                          <p>Skill Used: </p>
+                        <p>Compny Name: {`${Pe.companyName}`}</p>
+                        <p>Tech Stack: {`${Pe.techStack}`}</p>
+                        <p>Skill Used: </p>
+                        <div className={style.skills}>
+                          
                           {
                             Pe.skillsUsed.map((skil) => (
                               <p>{`${skil.skill}`}</p>
@@ -78,8 +82,8 @@ export const ViewApplication = () => {
                   {
                     el.educationalExperience.map((Ex) => (
                       <div>
-                        <p>{`${Ex.degreeName}`}</p>
-                        <p>{`${Ex.schoolName}`}</p>
+                        <p>Degree Nme: {`${Ex.degreeName}`}</p>
+                        <p>School Name: {`${Ex.schoolName}`}</p>
                         <p>Time Period: {`Start: ${Ex.timePeriod.startDate}  End: ${Ex.timePeriod.endDate}`}</p>
                       </div>
                     ))

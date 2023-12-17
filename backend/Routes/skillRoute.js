@@ -4,6 +4,7 @@ const { SkillModel } = require('../Models/skillsSchema')
 
 const skillRoute = express.Router()
 
+// To dd predefined Skills
 
 skillRoute.post('/add', async (req, res) => {
 
@@ -20,6 +21,8 @@ skillRoute.post('/add', async (req, res) => {
 })
 
 
+
+//  To get all Predefined Skills
 
 skillRoute.get('/predefinedSkills', async (req, res) => {
 

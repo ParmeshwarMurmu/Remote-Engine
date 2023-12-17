@@ -14,11 +14,15 @@ const skillSchema = new mongoose.Schema({
     // skill: { type: String, required: true },
   });
   
+
+  // Time Period Schema
   const timePeriodSchema = new mongoose.Schema({
     startDate: { type:  String},
     endDate: { type:  String },
   });
   
+
+  // Professional Experience Schema
   const professionalExperienceSchema = new mongoose.Schema({
     companyName: { type: String },
     techStack: { type: String },
@@ -26,12 +30,17 @@ const skillSchema = new mongoose.Schema({
     timePeriod: timePeriodSchema,
   });
   
+
+  // Educational Experience Schema
   const educationalExperienceSchema = new mongoose.Schema({
     degreeName: { type: String },
     schoolName: { type: String },
     timePeriod: timePeriodSchema,
   });
 
+
+
+  // Final Onboarding Schema
 
 const onbordingSchema = mongoose.Schema({
     firstName: { type: String, required: true },

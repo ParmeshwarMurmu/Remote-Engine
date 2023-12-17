@@ -5,6 +5,7 @@ const { authentication } = require('../Middleware/Authentication');
 const onboardingRoute = express.Router()
 
 
+// On submiiting onBording Form
 onboardingRoute.post('/submit', authentication, async (req, res) => {
 
     try {
@@ -22,6 +23,8 @@ onboardingRoute.post('/submit', authentication, async (req, res) => {
 })
 
 
+// To get all submitted onboarding form
+
 onboardingRoute.get('/viewApplication', async (req, res) => {
 
     try {
@@ -29,7 +32,7 @@ onboardingRoute.get('/viewApplication', async (req, res) => {
         
         const viewApplication = await OnboardingModel.find().populate({
             path: 'skills._id',
-            model: 'skill', // The name of the model to use for population
+            model: 'skill', 
           })
           .populate({
             path: 'professionalExperience.skillsUsed',

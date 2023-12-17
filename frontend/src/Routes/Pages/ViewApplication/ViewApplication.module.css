@@ -1,12 +1,24 @@
-.view{
+
+
+.individualApplication{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    
-    
+
 }
 
-.view >div{
+.individualApplication > div{
     border: 1px solid grey;
     padding: 10px;
+
+}
+
+.skills{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skills p{
+    margin-right: 10px;
+    margin-bottom: 5px;
 }

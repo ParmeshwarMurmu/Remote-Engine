@@ -6,6 +6,9 @@ const jwt = require('jsonwebtoken')
 
 const userRoute = express.Router()
 
+
+// To Signup User
+
 userRoute.post('/signUp', async (req, res) => {
 
     try {
@@ -28,6 +31,7 @@ userRoute.post('/signUp', async (req, res) => {
 
 
 
+// To Login User
 userRoute.post('/login', async (req, res) => {
 
     try {
@@ -51,7 +55,7 @@ userRoute.post('/login', async (req, res) => {
 
 
 
-
+//  SINGLE USER
 userRoute.get('/singleUser/:id', async (req, res) => {
 
     try {

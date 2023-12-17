@@ -18,7 +18,7 @@ export const Onboarding = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [professionalExperiences, setProfessionalExperiences] = useState([{ companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }]);
   const [educationalExperiences, setEducatioinalExperiences] = useState([{ degreeName: "", schoolName: "", timePeriod: {} }])
-
+  const token = localStorage.getItem('Remote-Engine-token');
 
   //Extracting details from OnboardingReducer
   
@@ -113,7 +113,7 @@ export const Onboarding = () => {
 
     console.log(data);
 
-    dispatch(completeOnboarding(data)) //Dispatching it to completeOnboarding with the data
+    dispatch(completeOnboarding(data, token)) //Dispatching it to completeOnboarding with the data
     dispatch(onboardingResetAction())
     setProfessionalExperiences([{ companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }])
     setEducatioinalExperiences([{ degreeName: "", schoolName: "", timePeriod: {} }])

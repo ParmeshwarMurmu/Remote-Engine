@@ -51,12 +51,13 @@ export const onboardingResetAction = ( ) => {
 }
 
 
-export const completeOnboarding = (data) => (dispatch) => {
+// Remote-Engine-token
+export const completeOnboarding = (data, token) => (dispatch) => {
 
-    
+    console.log("token", token);
     axios.post(`${APP_URL}${SUBMIT_ONBOARDING_FORM__ENDPOINT}`, data, {
       headers: {
-        Authorization: `Bearer ${TOKEN}`
+        Authorization: `Bearer ${token}`
       }
     })
     .then((res) => {
