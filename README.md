@@ -118,22 +118,111 @@ If all your Information are correct Please Click OK to save your Educational Exp
 
 ![Educational Experiences](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/f7826861-8bdb-4fcf-86bd-29f3443cac1e)
 
+## Final Step Submit Form
+After Confirming all the details that have been filled click on submit button to sumbit your form.
+you will see an alert with message Submitted Successfully.
+
+![Submit](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/a022858c-5a08-4e7c-ad95-e591e38c201b)
+
+## View Application 
+
+after being loged out (logout Button on onboarding page) on signup page you will see View All Application Hyperlink 🔗 On clicking you will redirect to a page when you can see all Applications with dteails.![ViewApp](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/6b328b6d-1f86-432b-9d8a-42bdcf1dee7a)
 
 
-
-```bash
-# Example1o
-```
-
-Include screenshots as necessary.
-
-## APIs Used
-If your application relies on external APIs, document them and include any necessary links or references.
 
 ## API Endpoints
 In case of Backend Applications provide a list of your API endpoints, methods, brief descriptions, and examples of request/response.
-GET /api/items - retrieve all items
-POST /api/items - create a new item
+
+## For Registering User
+
+POST /user/signUp 
+
+Example:-
+
+Request
+```bash
+{
+email: "json@gmail.com"
+}
+```
+
+Response
+```bash
+{
+"message" : "SignUp Successfully"
+}
+```
+
+## For Login
+
+POST /user/login 
+
+Request
+```bash
+{
+email: "json@gmail.com"
+}
+```
+
+Response
+```bash
+{
+"message": "Login Successfully", "userId": existingUser._id, "token": token
+}
+```
+
+## Add Skills
+
+POST /skill/add
+
+
+Request
+
+```bash
+{
+skill: "HTML"
+}
+```
+
+Response
+```bash
+{ "message": "Skill Added" }
+```
+
+## Get PreDefined Skills
+
+
+GET /skill/predefinedSkills
+
+
+
+Response
+```bash
+{
+"predefinedSkills": [{_id:"1343sfd", skill: 'HTML'}]
+}
+```
+
+## Submitting Onboarding Form
+
+POST /onboarding/submit
+
+
+
+Request
+
+```bash
+{
+skill: "HTML"
+}
+```
+
+Response
+```bash
+{ "message": "Skill Added" }
+```
+
+
 
 
 ## Technology Stack
