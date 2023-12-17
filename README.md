@@ -223,13 +223,21 @@ Request
 
 ```bash
 {
-skill: "HTML"
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: '',
+    skills: [{},{}],
+    professionalExperience: [{},{}],
+    educationalExperience: [{},{}],
 }
 ```
 
 Response
 ```bash
-{ "message": "Skill Added" }
+{
+ "message": "Submitted Successfully"
+}
 ```
 
 
