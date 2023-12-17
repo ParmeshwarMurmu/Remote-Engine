@@ -23,7 +23,7 @@ export const userRegistration = (data) => (dispatch) => {
 
     axios.post(`${APP_URL}${USER_SIGNUP_ENDPOINT}`, data)
     .then((res) => {
-      console.log(res);
+    
       alert(`${res.data.message}`)
       dispatch(registrationEmailResetAction())
       

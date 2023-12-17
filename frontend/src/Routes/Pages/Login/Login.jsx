@@ -28,7 +28,7 @@ export const Login = () => {
 
 
 
-    console.log(email);
+    
 
     const userLoginClick = (e) => {
         e.preventDefault();

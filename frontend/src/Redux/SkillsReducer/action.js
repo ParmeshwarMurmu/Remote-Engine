@@ -25,13 +25,13 @@ export const addUserSkills = (data) => (dispatch) => {
  
     axios.post(`${APP_URL}${ADDING_SKILLS__ENDPOINT}`, data)
     .then((res) => {
-      // console.log(res);
+     
       alert(`${res.data.message}`)
       dispatch(resetSkillsAction())
       
     })
     .catch((err) => {
-      // console.log(err);
+      
       alert(`${err.code}`)
     }
     );

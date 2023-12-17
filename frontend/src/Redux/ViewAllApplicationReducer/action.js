@@ -42,7 +42,7 @@ export const getViewAllApplicationData = () => (dispatch) => {
       
     })
     .catch((err) => {
-      // console.log(err);
+     
       alert(`${err.code}`)
     }
     );

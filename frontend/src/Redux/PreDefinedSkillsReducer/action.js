@@ -34,12 +34,12 @@ export const getPreDefinedSkills = () => (dispatch) => {
     dispatch(preDefinedSkillsLoadingAction())
     axios.get(`${APP_URL}${GET_PREDEFINED_SKILLS__ENDPOINT}`)
     .then((res) => {
-      console.log(res);
+      
       dispatch(preDefinedSkillsSuccessAction(res.data.predefinedSkills))
       
     })
     .catch((err) => {
-      console.log(err);
+     
       dispatch(preDefinedSkillsErrorAction())
       alert(`${err.code}`)
     }

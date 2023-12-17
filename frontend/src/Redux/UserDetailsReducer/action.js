@@ -29,7 +29,7 @@ export const getUserDetails = (id) => (dispatch) => {
    
     axios.get(`${APP_URL}${SINGLE_USER_DETAIL__ENDPOINT}/${id}`)
     .then((res) => {
-      // console.log(res.data)
+     
       dispatch(userDetailsSuccessAction(res.data.userDetail))
   
     })

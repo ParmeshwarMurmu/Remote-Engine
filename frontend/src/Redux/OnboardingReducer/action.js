@@ -53,15 +53,14 @@ export const onboardingResetAction = ( ) => {
 
 export const completeOnboarding = (data) => (dispatch) => {
 
-    console.log(data);
-    // console.log(HEADERS);
+    
     axios.post(`${APP_URL}${SUBMIT_ONBOARDING_FORM__ENDPOINT}`, data, {
       headers: {
         Authorization: `Bearer ${TOKEN}`
       }
     })
     .then((res) => {
-      console.log(res);
+     
       alert(res.data.message)
       
       

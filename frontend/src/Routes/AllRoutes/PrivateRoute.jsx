@@ -12,7 +12,7 @@ export const PrivateRoute = ({ children }) => {
     }, shallowEqual)
 
 
-    console.log(isAuth, "dsassafascfaafa");
+
 
 
     if(isAuth){
