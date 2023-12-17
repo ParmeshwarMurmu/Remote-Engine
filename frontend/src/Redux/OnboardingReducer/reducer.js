@@ -46,13 +46,13 @@ export const reducer = (state = initialState, { type, payload }) => {
             case ONBOARDING_PROFESSIONAL_EXPERIENCE:
             return {
                 ...state,
-                professionalExperience: [...state.professionalExperience, payload]
+                professionalExperience: payload
             }
 
             case ONBOARDING_EDUCATIONAL_EXPERIENCE:
             return {
                 ...state,
-                educationalExperience: [...state.educationalExperience, payload]
+                educationalExperience: payload
             }
 
             case ONBOARDING_RESET:

@@ -31,7 +31,7 @@ export const ProfessionalExperiencePreDefinedSkillsComp = ({preDefinedSkills, pr
                      <button key={el._id}
                      className={style.button}
                      onClick={() => onSkillHandler(el, "skillsUsed")}
-                     disabled={professionalSkills.some((skill) => skill._id === el._id)}
+                     disabled={experience.skillsUsed.some((skill) => skill._id === el._id)}
                     
                      >
                         {el.skill}

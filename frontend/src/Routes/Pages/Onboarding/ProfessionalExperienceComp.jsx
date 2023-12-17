@@ -9,9 +9,20 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
 
     const experienceHandler = (e)=>{
         const {name, value} = e.target;
-        const updateExperience = {...experience, [`${name}`]: value}
-        console.log("update", updateExperience);
-        onExperienceChange(updateExperience);
+        if(name === "startDate" || name === "endDate"){
+          const timePeriod = {
+            ...experience.timePeriod,
+            [`${name}`] : value
+          }
+          const updateExperience = {...experience, timePeriod}
+          onExperienceChange(updateExperience);
+
+        }
+        else{
+
+          const updateExperience = {...experience, [`${name}`]: value}
+          onExperienceChange(updateExperience);
+        }
        
     }
 
@@ -22,7 +33,7 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
       }
     }, shallowEqual)
 
-    console.log("professional Skills", professionalSkills);
+   
 
   return (
     <div>
@@ -32,7 +43,7 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
 
             <div>
             <label>Company Name:</label>
-            <input type='text' placeholder='Company Name'
+            <input type='text' required placeholder='Company Name'
              value={experience.companyName}
              name='companyName'
              onChange={experienceHandler}
@@ -42,8 +53,9 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
 
             <div>
             <label>Tech Stack:</label>
-            <input type='text' placeholder='Tech Stack'
+            <input type='text' required placeholder='Tech Stack'
             name='techStack'
+            value={experience.techStack}
             onChange={experienceHandler}
              />
             </div>
@@ -62,17 +74,20 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
              />
 
 
-            <input type='text' placeholder='Skills Used'
-            value={professionalSkills.map((el) => el.skill)}
+            <input type='text' required placeholder='Skills Used'
+            value={experience.skillsUsed.map((el) => el.skill)}
              />
             </div>
+
+
+
 
             <div>
             <label>Time Period:</label>
             
             <label>Start:</label>
             <input type='date'
-            name='startDate'
+            name='startDate' 
             onChange={experienceHandler}
              />
 

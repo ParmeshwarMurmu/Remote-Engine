@@ -4,6 +4,7 @@ const { connection }  = require('./Config/db')
 const cors = require('cors')
 const { userRoute } = require('./Routes/userRoute')
 const { skillRoute } = require('./Routes/skillRoute')
+const { onboardingRoute } = require('./Routes/onboardingRoute')
 
 
 const app = express()
@@ -12,6 +13,7 @@ app.use(cors())
 
 app.use('/user', userRoute)
 app.use('/skill', skillRoute)
+app.use('/onboarding', onboardingRoute)
 
 
 

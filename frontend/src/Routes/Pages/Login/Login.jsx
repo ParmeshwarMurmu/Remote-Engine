@@ -16,6 +16,16 @@ export const Login = () => {
         }
     }, shallowEqual)
 
+    const { isAuth } = useSelector((store) => {
+        return {
+            isAuth: store.IsAuthReducer.isAuth,
+        }
+    }, shallowEqual)
+
+
+
+
+
 
 
     console.log(email);
@@ -40,6 +50,10 @@ export const Login = () => {
                 </div>
 
                 {/* Heading */}
+
+                {
+                    isAuth ? <h1>Loged In Continue Onboarding</h1> : ( <>
+                
                 <h1>Login</h1>
 
 
@@ -66,6 +80,9 @@ export const Login = () => {
                         <input type="submit" />
                     </div>
                 </form>
+                </>
+                    )
+                }
 
                 <div>
                     <Link to={'/'}>SignUp</Link>

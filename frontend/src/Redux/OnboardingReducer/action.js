@@ -1,4 +1,6 @@
 import axios from "axios";
+import { APP_URL, TOKEN } from "../../Variables/AllVariables";
+import { SUBMIT_ONBOARDING_FORM__ENDPOINT } from "../../Api/EndPoints";
 
 export const ONBOARDING_FIRST_NAME = "ONBOARDING_FIRST_NAME";
 export const ONBOARDING_LAST_NAME = "ONBOARDING_LAST_NAME";
@@ -49,16 +51,19 @@ export const onboardingResetAction = ( ) => {
 }
 
 
-
-
-
-export const userOnboarding = (data) => (dispatch) => {
+export const completeOnboarding = (data) => (dispatch) => {
 
     console.log(data);
-    axios.post("http://localhost:8000/user/signUp", data)
+    // console.log(HEADERS);
+    axios.post(`${APP_URL}${SUBMIT_ONBOARDING_FORM__ENDPOINT}`, data, {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`
+      }
+    })
     .then((res) => {
       console.log(res);
-      alert(`${res.data.message}`)
+      alert(res.data.message)
+      
       
     })
     .catch((err) => {

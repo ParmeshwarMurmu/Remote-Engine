@@ -4,7 +4,7 @@ import style from '../Routes/Pages/Onboarding/Onboarding.module.css'
 
 export const PreDefinedSkillComponents = ({ preDefinedSkills, selectedSkills, onSkillClick , skills}) => {
 
-    // 
+    
     
     return (
         <div>
