@@ -27,13 +27,13 @@ https://drive.google.com/file/d/13Ao1ygUKRxdZXdWED7IYD14vf2ufnux2/view?usp=drive
 
 ## design decisions or assumptions
 
-List your design decisions & assumptions
 
  Assumptions: -
 - SignUp Page :- For Developers(users) to register themselves to application.
 - Login Page :- For Developers(users) to log in using credentials provided at the time of registration.
 - Onboarding Page :- For Developers(users) to fill up the onboarding form using required credentials.
 - View Application Page :- For Clients(Company) to view all the Applications.
+- On selecting any predefined skills it should get automatically added to Input fields and the skill button should disabled.
 
 
 ## Installation & Getting started
@@ -241,6 +241,36 @@ Response
 ```
 
 
+
+## View All Application
+
+GET /onboarding/viewApplication
+
+Response
+```bash
+[
+ {
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: '',
+    skills: [{},{}],
+    professionalExperience: [{},{}],
+    educationalExperience: [{},{}],
+
+ },
+
+  {
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: '',
+    skills: [{},{}],
+    professionalExperience: [{},{}],
+    educationalExperience: [{},{}],
+}
+]
+```
 
 
 ## Technology Stack
