@@ -1,6 +1,7 @@
 import axios from "axios";
 import { APP_URL } from "../../Variables/AllVariables";
-import { ADDING_SKILLS__ENDPOINT, VIEW_ALL_APPLICATION_ENDPOINT } from "../../Api/EndPoints";
+import { VIEW_ALL_APPLICATION_ENDPOINT } from "../../Api/EndPoints";
+
 
 
 export const VIEW_APPLICATION_LOADING= "VIEW_APPLICATION_LOADING";
@@ -30,10 +31,10 @@ export const viewAplicationErrorAction = () => {
 
 
 
-export const getViewpplictionData = () => (dispatch) => {
+export const getViewAllApplicationData = () => (dispatch) => {
     
     dispatch(viewAplicationLoadingAction())
-    axios.post(`${APP_URL}${VIEW_ALL_APPLICATION_ENDPOINT}`)
+    axios.get(`${APP_URL}${VIEW_ALL_APPLICATION_ENDPOINT}`)
     .then((res) => {
       console.log(res);
       

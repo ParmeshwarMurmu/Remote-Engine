@@ -8,13 +8,9 @@ const mongoose = require('mongoose')
 // phoneNumber: '',
 // email: '',
 // skills: [{_id: "ere34", skill: "css"}], _id ref to skills collection
-// professionalExperience: [
-    // { companyName: '', techStack: '', skillsUsed: [{{_id: "ere34", skill: "css"}}], timePeriod: {startDate: "", endDate: ""} }
-// ],
-// educationalExperience: [{ degreeName: "", schoolName: "", timePeriod: {startDate: "", endDate: ""} }],
 
 const skillSchema = new mongoose.Schema({
-    _id: { type: mongoose.Schema.Types.ObjectId, ref: 'skill', required: true },
+     _id: { type: mongoose.Schema.Types.ObjectId, ref: 'skill', required: true },
     // skill: { type: String, required: true },
   });
   

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { onboardingEducationalExperienceAction } from '../../../Redux/OnboardingReducer/action';
-
+import style from './Onboarding.module.css'
 export const EducationalExperienceComp = ({educationalExperiences, setEducatioinalExperiences}) => {
     // Degree Name, School Name, Time Period
 
@@ -57,7 +57,7 @@ export const EducationalExperienceComp = ({educationalExperiences, setEducatioin
         <div>
             {
                 educationalExperiences.map((experience, index) => (
-                    <div key={index}>
+                    <div key={index} className={style.EducationalExperience}>
 
                         <div>
                             <label>Degree Name:</label>

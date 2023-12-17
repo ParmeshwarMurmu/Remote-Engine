@@ -5,6 +5,7 @@ import { Onboarding } from '../Pages/Onboarding/Onboarding'
 import { Login } from '../Pages/Login/Login'
 import { PrivateRoute } from './PrivateRoute'
 import { Skill } from '../Pages/Skills/Skill'
+import { ViewApplication } from '../Pages/ViewApplication/ViewApplication'
 
 
 export const AllRoutes = () => {
@@ -18,6 +19,7 @@ export const AllRoutes = () => {
             <Route path='/' element={<SignUp />} />
             <Route path='/login' element={<Login />} />
             <Route path='/addSkill' element={<Skill />} />
+            <Route path='/allApplication' element={<ViewApplication />} />
         </Routes>
     )
 }

@@ -13,22 +13,22 @@ export const SignUp = () => {
 
     const { email } = useSelector((store) => {
         return {
-          email: store.SignupReducer.email,
+            email: store.SignupReducer.email,
         }
-      }, shallowEqual)
+    }, shallowEqual)
 
-      console.log(email);
+    console.log(email);
 
 
 
-      const userSignClick = (e)=>{
+    const userSignClick = (e) => {
         e.preventDefault();
         const data = {
             email
         }
         dispatch(userRegistration(data))
 
-      }
+    }
 
 
     return (
@@ -38,10 +38,14 @@ export const SignUp = () => {
             <div>
 
                 <div className={style.onboarding}>
+                    <Link to={'/allApplication'}>View All Application</Link>
+                </div>
+
+                <div className={style.onboarding}>
                     <Link to={'/onboarding'}>Onboarding</Link>
                 </div>
 
-               
+
                 <h1>Sign Up</h1>
 
 
@@ -56,7 +60,8 @@ export const SignUp = () => {
                         <input type='email'
                             placeholder='Email'
                             required
-                            onChange={(e)=>{
+                            value={email}
+                            onChange={(e) => {
                                 dispatch(registrationEmailAction(e.target.value))
                             }}
 

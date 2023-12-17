@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { shallowEqual, useSelector } from 'react-redux';
 import { ProfessionalExperiencePreDefinedSkillsComp } from './ProfessionalExperiencePreDefinedSkillsComp';
-
+import style from './Onboarding.module.css'
 export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => {
 
   const [professionalSkills, setProfessionalSkills] = useState([]) // skillused: [{}, {}]
@@ -36,7 +36,7 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
    
 
   return (
-    <div>
+    <div className={style.onboardingContainer}>
         
         <div>
             {/* <label><h3>Proffessional Experience:</h3></label> */}
@@ -62,7 +62,7 @@ export const ProfessionalExperienceComp = ({experience, onExperienceChange}) => 
 
             <div>
 
-            <label>Skills Used:</label>
+            <label>Skills Used: (Select Below Skills)</label>
 
             <ProfessionalExperiencePreDefinedSkillsComp
             preDefinedSkills = {preDefinedSkills} //already defind skills

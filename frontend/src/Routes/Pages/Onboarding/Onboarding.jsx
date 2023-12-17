@@ -140,11 +140,11 @@ export const Onboarding = () => {
   
 
   return (
-    <div>
+    <div className={style.onboardingParentContainer}>
 
       <div>
 
-        <div>
+        <div className={style.logoutBtn}>
           <button onClick={logoutHandler}>Logout</button>
         </div>
 
@@ -180,7 +180,7 @@ export const Onboarding = () => {
 
 
           <div>
-            <label>Skill:</label>
+            <label>Skill:(select Below Skills)</label>
             <PreDefinedSkillComponents
               preDefinedSkills={preDefinedSkills}
               selectedSkills={selectedSkills}
@@ -206,7 +206,7 @@ export const Onboarding = () => {
           <div>
             <label><h3>Professional Experience:</h3></label>
             {professionalExperiences.map((experience, index) => (
-              <div key={index}>
+              <div key={index} className={style.professionalExperience}>
 
                 <ProfessionalExperienceComp experience={experience}
                   onExperienceChange={(updatedExperience) => {
@@ -235,9 +235,9 @@ export const Onboarding = () => {
               </button>
             </div>
 
-            <div>
-              <label> If all Professional Experience information are correct Clik OK</label>
-              <button onClick={(e)=>{saveProfessionalExperiences(e)}}>OK</button>
+            <div className={style.noteContiner}>
+              <label> NOTE:*** If all Professional Experience information are correct Clik OK</label>
+              <button className={style.OKbutton} onClick={(e)=>{saveProfessionalExperiences(e)}}>OK</button>
             </div>
 
           </div>
@@ -255,13 +255,15 @@ export const Onboarding = () => {
           </div>
 
 
-            <div>
-              <label> If all Educational Experience information are correct Clik OK</label>
-              <button onClick={(e)=>{saveEducationalExperiences(e)}}>OK</button>
+            <div className={style.noteContiner}>
+              <label> NOTE: *** If all Educational Experience information are correct Clik OK</label>
+              <button className={style.OKbutton}  onClick={(e)=>{saveEducationalExperiences(e)}}>OK</button>
             </div>
 
 
+          <div>
           <input type="submit" value='submit'/>
+          </div>
 
 
 

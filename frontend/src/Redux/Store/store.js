@@ -8,6 +8,7 @@ import { reducer as OnboardingReducer } from '../OnboardingReducer/reducer'
 import { reducer as UserDetailsReducer } from '../UserDetailsReducer/reducer'
 import { reducer as SkillsReducer } from '../SkillsReducer/reducer'
 import { reducer as PreDefinedSkillsReducer } from '../PreDefinedSkillsReducer/reducer'
+import { reducer as ViewAllApplicationReducer } from '../ViewAllApplicationReducer/reducer'
 
 const rootReducer = combineReducers({
     SignupReducer,
@@ -16,7 +17,10 @@ const rootReducer = combineReducers({
     OnboardingReducer,
     UserDetailsReducer,
     SkillsReducer,
-    PreDefinedSkillsReducer
+    PreDefinedSkillsReducer,
+    ViewAllApplicationReducer
+
+
 })
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))

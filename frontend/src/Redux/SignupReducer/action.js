@@ -3,6 +3,7 @@ import { APP_URL, } from "../../Variables/AllVariables";
 import { USER_SIGNUP_ENDPOINT } from "../../Api/EndPoints";
 
 export const REGISTRATION_EMAIL = "REGISTRATION_EMAIL";
+export const REGISTRATION_RESET = "REGISTRATION_RESET";
 
 
 
@@ -10,10 +11,12 @@ export const registrationEmailAction = (payload ) => {
     return { type: REGISTRATION_EMAIL, payload }
 }
 
+export const registrationEmailResetAction = () => {
+  return { type: REGISTRATION_RESET, }
+}
 
-// const headers = {
-//     Authorization: `bearer ${token}`,
-// };
+
+
 
 
 export const userRegistration = (data) => (dispatch) => {
@@ -22,6 +25,7 @@ export const userRegistration = (data) => (dispatch) => {
     .then((res) => {
       console.log(res);
       alert(`${res.data.message}`)
+      dispatch(registrationEmailResetAction())
       
     })
     .catch((err) => {

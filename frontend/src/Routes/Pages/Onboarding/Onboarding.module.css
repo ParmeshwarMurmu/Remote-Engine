@@ -1,3 +1,9 @@
+
+.onboardingParentContainer{
+    width: 40%;
+    margin: auto;
+}
+
 .onboardingContainer > div{
     margin-bottom: 10px;
 
@@ -5,4 +11,29 @@
 
 .button{
     margin-right: 10px;
+}
+
+.professionalExperience{
+    margin-bottom: 50px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+.EducationalExperience{
+    margin-bottom: 50px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+
+.OKbutton{
+    margin-left: 10px;
+}
+
+.noteContiner{
+    margin-top: 10px;
+}
+
+.logoutBtn{
+    padding-top: 30px;
 }

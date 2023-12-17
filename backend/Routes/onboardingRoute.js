@@ -25,11 +25,24 @@ onboardingRoute.post('/submit', authentication, async (req, res) => {
 onboardingRoute.get('/viewApplication', async (req, res) => {
 
     try {
-        const { email, firstName, lastName, phoneNumber, professionalExperience, educationalExperience, userId } = req.body
-        console.log(email, firstName, lastName, phoneNumber, professionalExperience, educationalExperience, userId);
-        const newBoarding = new OnboardingModel({...req.body})
-        await newBoarding.save()
-        res.status(200).send({ "message": "Submitted Successfully" })
+       
+        
+        const viewApplication = await OnboardingModel.find().populate({
+            path: 'skills._id',
+            model: 'skill', // The name of the model to use for population
+          })
+          .populate({
+            path: 'professionalExperience.skillsUsed',
+            model: 'skill',
+          })
+          .populate({
+            path:'userId',
+            model: 'user'
+          })
+          .sort({_id: -1})
+
+          console.log(viewApplication);
+        res.status(200).send({ "allApplication": viewApplication })
 
 
     } catch (error) {
