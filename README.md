@@ -1,10 +1,14 @@
 # Remote-Engine
 
 ## Introduction
-A brief introduction of your project goes here. You may want to cover the purpose of your project, its core functionality, and what problems it solves.
+A web application that facilitates the registration and onboarding process for both clients and developers.
 
-## Deplolyed App
-https://deployed-site.whatever
+## Deployed App
+#frontend
+https://remote-engine.vercel.app/
+
+#backend
+https://remote-engine.onrender.com
 
 ## Video Walkthrough of the project
 
