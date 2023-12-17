@@ -3,10 +3,20 @@
 ## Introduction
 A web application that facilitates the registration and onboarding process for both clients and developers.
 
-## Deplolyed App
-https://deployed-site.whatever
+## Deployed App
+
+### frontend
+
+https://remote-engine.vercel.app/
+
+### backend
+
+https://engine-1hin.onrender.com
 
 ## Video Walkthrough of the project
+
+https://drive.google.com/file/d/13Ao1ygUKRxdZXdWED7IYD14vf2ufnux2/view?usp=drive_link
+
 
 ## Features
 
