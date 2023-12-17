@@ -6,6 +6,9 @@ export const ViewApplication = () => {
 
   const dispatch = useDispatch()
 
+
+   // Extracting details from ViewAllApplicationReducer
+
   const { isLoading, allApplication, isError, isData } = useSelector((store) => {
     return {
       isLoading: store.ViewAllApplicationReducer.isLoading,

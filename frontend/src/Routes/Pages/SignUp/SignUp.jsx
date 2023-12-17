@@ -10,7 +10,7 @@ export const SignUp = () => {
 
     const dispatch = useDispatch();
 
-
+      // Extracting email from SignupReducer
     const { email } = useSelector((store) => {
         return {
             email: store.SignupReducer.email,
@@ -20,7 +20,7 @@ export const SignUp = () => {
     console.log(email);
 
 
-
+    // Function when user Click on submit button during SignUp
     const userSignClick = (e) => {
         e.preventDefault();
         const data = {

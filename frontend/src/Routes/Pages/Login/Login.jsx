@@ -9,13 +9,18 @@ export const Login = () => {
 
     const dispatch = useDispatch();
 
-
+    
+    // Extracting email from LoginReducer
     const { email } = useSelector((store) => {
         return {
             email: store.LoginReducer.email,
         }
     }, shallowEqual)
 
+ 
+
+    // Extracting isAuth from IsAuthReducer
+    
     const { isAuth } = useSelector((store) => {
         return {
             isAuth: store.IsAuthReducer.isAuth,
@@ -29,6 +34,7 @@ export const Login = () => {
 
 
     
+    // Function when user click on Submit Button 
 
     const userLoginClick = (e) => {
         e.preventDefault();

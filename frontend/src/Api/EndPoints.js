@@ -1,4 +1,5 @@
 
+
 export const USER_SIGNUP_ENDPOINT = "/user/signUp";
 export const USER_LOGIN_ENDPOINT = "/user/login";
 export const SINGLE_USER_DETAIL__ENDPOINT = "/user/singleUser";

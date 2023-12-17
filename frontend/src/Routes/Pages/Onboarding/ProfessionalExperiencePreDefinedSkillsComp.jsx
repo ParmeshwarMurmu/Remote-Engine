@@ -6,7 +6,7 @@ import style from './Onboarding.module.css'
 
 export const ProfessionalExperiencePreDefinedSkillsComp = ({preDefinedSkills, professionalSkills, setProfessionalSkills, experience, onExperienceChange}) => {
   
-    // const preDefinedSkills = [company: "", skillsUsed: []]
+    
 
 
     const onSkillHandler = (skill, name)=>{

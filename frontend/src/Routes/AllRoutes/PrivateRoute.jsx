@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 export const PrivateRoute = ({ children }) => {
     
 
+    // Extracting isAuth from IsAuthReducer
     const { isAuth } = useSelector((store) => {
         return {
             isAuth: store.IsAuthReducer.isAuth,

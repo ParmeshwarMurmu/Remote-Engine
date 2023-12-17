@@ -19,6 +19,9 @@ export const Onboarding = () => {
   const [professionalExperiences, setProfessionalExperiences] = useState([{ companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }]);
   const [educationalExperiences, setEducatioinalExperiences] = useState([{ degreeName: "", schoolName: "", timePeriod: {} }])
 
+
+  //Extracting details from OnboardingReducer
+  
   const { firstName, lastName, phoneNumber, email, skills, professionalExperience, educationalExperience } = useSelector((store) => {
     return {
       firstName: store.OnboardingReducer.firstName,
@@ -31,18 +34,10 @@ export const Onboarding = () => {
     }
   }, shallowEqual)
 
-  const { isLoading, userDetail, isData } = useSelector((store) => {
-    return {
+  
 
-      isLoading: store.UserDetailsReducer.isLoading,
-      userDetail: store.UserDetailsReducer.userDetail,
-      isData: store.UserDetailsReducer.isData,
-    }
-  }, shallowEqual)
-
-  // console.log(userDetail, "serDetail");
-  // console.log(isData, "isData");
-
+  
+    // Extracting preDefinedSkills from PreDefinedSkillsReducer
   const {  preDefinedSkills } = useSelector((store) => {
     return {
       preDefinedSkills: store.PreDefinedSkillsReducer.preDefinedSkills,
@@ -51,8 +46,8 @@ export const Onboarding = () => {
 
 
 
-  // console.log(USER_ID, "USER_ID");
 
+  //  Function to select all Predefined Skills
   const skilSelectHandler = (skill) => {
     console.log(skill);
     // setSelectedSkills((prevSkills) => [...prevSkills, skill]);
@@ -75,6 +70,8 @@ export const Onboarding = () => {
     setProfessionalExperiences(newExperiences);
   };
 
+
+  // Functon To save Professional Experiences
   const saveProfessionalExperiences = (e)=>{
     e.preventDefault()
     let flag = 0;
@@ -91,13 +88,19 @@ export const Onboarding = () => {
     }
   }
 
+  // function to save Educational Experiences
+
   const saveEducationalExperiences = (e)=>{
     e.preventDefault()
     dispatch(onboardingEducationalExperienceAction(educationalExperiences))
   }
 
+
+  // Function to submitOnboardingForm (when user Sumbits the form)
   const submitOnboardingForm = (e)=>{
     e.preventDefault()
+
+    // creating data
     const data = {
       firstName,
       lastName,
@@ -110,7 +113,7 @@ export const Onboarding = () => {
 
     console.log(data);
 
-    dispatch(completeOnboarding(data))
+    dispatch(completeOnboarding(data)) //Dispatching it to completeOnboarding with the data
     dispatch(onboardingResetAction())
     setProfessionalExperiences([{ companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }])
     setEducatioinalExperiences([{ degreeName: "", schoolName: "", timePeriod: {} }])
@@ -121,15 +124,13 @@ export const Onboarding = () => {
 
 
   useEffect(() => {
-    // dispatch(getUserDetails(USER_ID))
     dispatch(getPreDefinedSkills())
 
   }, [])
   
 
-  // console.log("ProfessionlExperienceD", professionalExperience)
-  // console.log("skills", skills)
-
+  
+  // Function to logout user(when user Clicks on logout Button)
   const logoutHandler = ()=>{
     localStorage.removeItem('Remote-Engine-token')
     localStorage.removeItem('Remote-Engine-userId')
