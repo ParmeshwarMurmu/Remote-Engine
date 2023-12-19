@@ -134,15 +134,7 @@ you will see an alert with message Submitted Successfully.
 
 ![Submit](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/a022858c-5a08-4e7c-ad95-e591e38c201b)
 
-## View Application 
 
-after being loged out (logout Button on onboarding page) on signup page you will see View All Application Hyperlink 🔗 On clicking you will redirect to a page when you can see all Applications with dteails
-
-![ViewApp](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/6b328b6d-1f86-432b-9d8a-42bdcf1dee7a)
-
-All Applications
-
-![ViewAllApplication](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/83df6c24-7a9e-4544-b039-d98f07a13b13)
 
 
 
