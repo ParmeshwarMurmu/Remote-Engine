@@ -41,10 +41,7 @@ export const SignUp = () => {
 
             <div>
 
-                {/* <div className={style.onboarding}>
-                    <Link to={'/allApplication'}>View All Application</Link>
-                </div> */}
-
+               
                 <div className={style.onboarding}>
                     <Link to={'/onboarding'}>Onboarding</Link>
                 </div>
