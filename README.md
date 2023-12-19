@@ -101,7 +101,7 @@ To login you have to use the same Email id used at the time of Registration. And
 ![R-LoginAgain](https://github.com/ParmeshwarMurmu/Remote-Engine/assets/121368970/58fe97bf-6e05-4a74-8361-4aabc43ab4df)
 
 ## Onboarding 
-
+This is a Protected Route and without log in User cannot access this Page.
 After Login On the same page you will see Onboarding  hyperlink 🔗  and on clicking you will redirect to Onboarding Page.
 Now, Fill up all your credentials as required and click on submit button.
 
