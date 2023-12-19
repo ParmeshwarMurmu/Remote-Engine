@@ -1,7 +1,8 @@
 
 .onboardingParentContainer{
-    width: 40%;
+    width: 50%;
     margin: auto;
+    padding-bottom: 100px;
 }
 
 .onboardingContainer > div{

@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from '../SignUp/Signup.module.css'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { registrationEmailAction, userRegistration } from '../../../Redux/SignupReducer/action';
 import { Link } from 'react-router-dom';
+import { Loader } from '../../../Components/Loader/Loader'
 
 // SIGN UP COMPONENT
 
 export const SignUp = () => {
 
     const dispatch = useDispatch();
+    const [signUpLoader, setSignUpLoader] = useState(false)
 
       // Extracting email from SignupReducer
     const { email } = useSelector((store) => {
@@ -21,12 +23,14 @@ export const SignUp = () => {
 
 
     // Function when user Click on submit button during SignUp
-    const userSignClick = (e) => {
+    const userSignClick = async(e) => {
         e.preventDefault();
+        setSignUpLoader(true)
         const data = {
             email
         }
-        dispatch(userRegistration(data))
+        await dispatch(userRegistration(data))
+        setSignUpLoader(false)
 
     }
 
@@ -37,9 +41,9 @@ export const SignUp = () => {
 
             <div>
 
-                <div className={style.onboarding}>
+                {/* <div className={style.onboarding}>
                     <Link to={'/allApplication'}>View All Application</Link>
-                </div>
+                </div> */}
 
                 <div className={style.onboarding}>
                     <Link to={'/onboarding'}>Onboarding</Link>
@@ -69,8 +73,12 @@ export const SignUp = () => {
                     </div>
 
                     {/* Form Submit button */}
+                    {
+                        signUpLoader && <Loader />
+                    }
+
                     <div>
-                        <input type="submit" />
+                        <input type="submit" disabled={signUpLoader} />
                     </div>
                 </form>
 

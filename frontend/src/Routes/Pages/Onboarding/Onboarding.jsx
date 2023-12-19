@@ -9,6 +9,7 @@ import style from './Onboarding.module.css'
 import { ProfessionalExperienceComp } from './ProfessionalExperienceComp';
 import { EducationalExperienceComp } from './EducationalExperienceComp';
 import { isAuthEmailAction } from '../../../Redux/IsAuthReducer/action';
+import { Loader } from '../../../Components/Loader/Loader'
 
 // ONBOARDING COMPONENT
 
@@ -19,6 +20,9 @@ export const Onboarding = () => {
   const [professionalExperiences, setProfessionalExperiences] = useState([{ companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }]);
   const [educationalExperiences, setEducatioinalExperiences] = useState([{ degreeName: "", schoolName: "", timePeriod: {} }])
   const token = localStorage.getItem('Remote-Engine-token');
+  const [okProfessionalExpLoader, setOkProfessionalExpLoader] = useState(false)
+  const [okEducationalExpLoader, setOkEducationalExpLoader] = useState(false)
+  const [onboardingSubmitLoader, setOnboardingSubmitLoader] = useState(false)
 
   //Extracting details from OnboardingReducer
   
@@ -59,12 +63,14 @@ export const Onboarding = () => {
 
   // Function to add professional experience
   const addProfessionalExperience = () => {
+    setOkProfessionalExpLoader(false)
     setProfessionalExperiences((prevExperiences) => [...prevExperiences, { companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }]);
   };
 
   // Function to remove professional experience
 
   const removeProfessionalExperience = (index) => {
+    setOkProfessionalExpLoader(false)
     const newExperiences = [...professionalExperiences];
     newExperiences.splice(index, 1);
     setProfessionalExperiences(newExperiences);
@@ -73,7 +79,9 @@ export const Onboarding = () => {
 
   // Functon To save Professional Experiences
   const saveProfessionalExperiences = (e)=>{
+
     e.preventDefault()
+    
     let flag = 0;
     for(let i=0; i<professionalExperiences.length; i++){
       if(professionalExperiences[i].skillsUsed.length === 0 && flag===0){
@@ -84,6 +92,7 @@ export const Onboarding = () => {
     }
 
     if(flag === 0){
+      setOkProfessionalExpLoader(true)
       dispatch(onboardingProfessionalExperienceAction(professionalExperiences))
     }
   }
@@ -91,15 +100,17 @@ export const Onboarding = () => {
   // function to save Educational Experiences
 
   const saveEducationalExperiences = (e)=>{
+    
     e.preventDefault()
+    setOkEducationalExpLoader(true)
     dispatch(onboardingEducationalExperienceAction(educationalExperiences))
   }
 
 
   // Function to submitOnboardingForm (when user Sumbits the form)
-  const submitOnboardingForm = (e)=>{
+  const submitOnboardingForm = async(e)=>{
     e.preventDefault()
-
+    setOnboardingSubmitLoader(true)
     // creating data
     const data = {
       firstName,
@@ -113,7 +124,8 @@ export const Onboarding = () => {
 
     console.log(data);
 
-    dispatch(completeOnboarding(data, token)) //Dispatching it to completeOnboarding with the data
+    await dispatch(completeOnboarding(data, token)) //Dispatching it to completeOnboarding with the data
+    setOnboardingSubmitLoader(false)
     dispatch(onboardingResetAction())
     setProfessionalExperiences([{ companyName: '', techStack: '', skillsUsed: [], timePeriod: {} }])
     setEducatioinalExperiences([{ degreeName: "", schoolName: "", timePeriod: {} }])
@@ -238,7 +250,7 @@ export const Onboarding = () => {
 
             <div className={style.noteContiner}>
               <label> NOTE:*** If all Professional Experience information are correct Clik OK</label>
-              <button className={style.OKbutton} onClick={(e)=>{saveProfessionalExperiences(e)}}>OK</button>
+              <button disabled={okProfessionalExpLoader} className={style.OKbutton} onClick={(e)=>{saveProfessionalExperiences(e)}}>OK</button>
             </div>
 
           </div>
@@ -252,18 +264,25 @@ export const Onboarding = () => {
             <EducationalExperienceComp
             educationalExperiences={educationalExperiences}
             setEducatioinalExperiences={setEducatioinalExperiences}
+            setOkEducationalExpLoader = {setOkEducationalExpLoader}
              />
           </div>
 
 
             <div className={style.noteContiner}>
               <label> NOTE: *** If all Educational Experience information are correct Clik OK</label>
-              <button className={style.OKbutton}  onClick={(e)=>{saveEducationalExperiences(e)}}>OK</button>
+              <button disabled={okEducationalExpLoader} className={style.OKbutton}  onClick={(e)=>{saveEducationalExperiences(e)}}>OK</button>
             </div>
-
+          
 
           <div>
-          <input type="submit" value='submit'/>
+            {
+              onboardingSubmitLoader && <Loader />
+            }
+          </div>
+
+          <div>
+          <input type="submit" value='submit' disabled={onboardingSubmitLoader} />
           </div>
 
 

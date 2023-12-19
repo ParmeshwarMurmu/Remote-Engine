@@ -11,7 +11,7 @@ const authentication = (req, res, next)=>{
     if(token){
         jwt.verify(token, process.env.SECRET_KEY, (err, decoded)=> {
             if(err){
-                res.status(200).send({"msg": "Please login Again MiddleWare"})
+                res.status(200).send({"message": "Please login"})
             }
 
             console.log(decoded);
@@ -23,7 +23,7 @@ const authentication = (req, res, next)=>{
         
     }
     else{
-        res.status(400).send({"msg": "Please login Again Mid"})
+        res.status(400).send({"message": "Please login"})
 
     }
    

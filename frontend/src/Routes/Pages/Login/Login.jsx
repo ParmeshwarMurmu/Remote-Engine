@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import style from '../CSS/Signup.module.css'
 import style from '../SignUp/Signup.module.css'
 import { Link } from 'react-router-dom'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { loginEmailAction, userLogin } from '../../../Redux/LoginReducer/action';
+import { Loader } from '../../../Components/Loader/Loader';
 
 export const Login = () => {
 
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
 
     
     // Extracting email from LoginReducer
@@ -36,12 +38,14 @@ export const Login = () => {
     
     // Function when user click on Submit Button 
 
-    const userLoginClick = (e) => {
+    const userLoginClick = async(e) => {
+        setLoading(true)
         e.preventDefault();
         const data = {
             email
         }
-        dispatch(userLogin(data))
+        await dispatch(userLogin(data))
+        setLoading(false)
     }
 
 
@@ -82,8 +86,10 @@ export const Login = () => {
                     </div>
 
                     {/* Form Submit button */}
+                    {loading && <Loader /> }
+
                     <div>
-                        <input type="submit" />
+                        <input type="submit" disabled={loading} />
                     </div>
                 </form>
                 </>

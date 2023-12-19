@@ -15,10 +15,10 @@ export const loginEmailAction = (payload ) => {
 
 
 
-export const userLogin = (data) => (dispatch) => {
+export const userLogin = (data) => async(dispatch) => {
    
  
-    axios.post(`${APP_URL}${USER_LOGIN_ENDPOINT}`, data)
+    return axios.post(`${APP_URL}${USER_LOGIN_ENDPOINT}`, data)
     .then((res) => {
       console.log(res);
       alert(`${res.data.message}`)

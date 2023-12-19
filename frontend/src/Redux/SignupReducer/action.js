@@ -19,9 +19,9 @@ export const registrationEmailResetAction = () => {
 
 
 
-export const userRegistration = (data) => (dispatch) => {
+export const userRegistration = (data) => async(dispatch) => {
 
-    axios.post(`${APP_URL}${USER_SIGNUP_ENDPOINT}`, data)
+    return axios.post(`${APP_URL}${USER_SIGNUP_ENDPOINT}`, data)
     .then((res) => {
     
       alert(`${res.data.message}`)

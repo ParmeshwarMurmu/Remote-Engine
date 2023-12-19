@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { onboardingEducationalExperienceAction } from '../../../Redux/OnboardingReducer/action';
 import style from './Onboarding.module.css'
-export const EducationalExperienceComp = ({educationalExperiences, setEducatioinalExperiences}) => {
+export const EducationalExperienceComp = ({educationalExperiences,setOkEducationalExpLoader, setEducatioinalExperiences}) => {
     
 
 
@@ -41,6 +41,7 @@ export const EducationalExperienceComp = ({educationalExperiences, setEducatioin
 
     // Function to remove Educational Experiences
     const removeEducationalExperience = (index) => {
+        setOkEducationalExpLoader(false)
         const newEducationalExperiences = [...educationalExperiences];
         newEducationalExperiences.splice(index, 1);
         setEducatioinalExperiences(newEducationalExperiences)
@@ -50,6 +51,7 @@ export const EducationalExperienceComp = ({educationalExperiences, setEducatioin
 
     // Function to Add Educational Experiences
     const addEducationalExperience = () => {
+        setOkEducationalExpLoader(false)
         setEducatioinalExperiences((prevExperiences) => [...prevExperiences, { degreeName: "", schoolName: "", timePeriod: {} }]);
        
     }

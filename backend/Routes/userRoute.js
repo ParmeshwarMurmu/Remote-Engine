@@ -69,7 +69,7 @@ userRoute.get('/singleUser/:id', async (req, res) => {
         
 
     } catch (error) {
-        res.status(400).send({ "message": "Login Failed", "err": error })
+        res.status(400).send({ "message": "Cannot Get User", "err": error })
 
     }
 })

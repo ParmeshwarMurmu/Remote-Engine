@@ -49,7 +49,7 @@ onboardingRoute.get('/viewApplication', async (req, res) => {
 
 
     } catch (error) {
-        res.status(400).send({ "message": "SignUp Failed", "err": error })
+        res.status(400).send({ "message": "Cannot Load Applications", "err": error })
 
     }
 })
