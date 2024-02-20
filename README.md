@@ -272,7 +272,7 @@ Response
 ```
 
 
-## Technology Stack
+## Tech Stack Used
 
 To build this application technologies used.
 - React
